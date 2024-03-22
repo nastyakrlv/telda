@@ -1,0 +1,60 @@
+<main>
+  <div class="title">
+    <button mat-icon-button (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <h1>{{ date }}</h1>
+  </div>
+
+  <mat-form-field>
+    <mat-label>Поиск</mat-label>
+    <input matInput type="text" [(ngModel)]="searchText">
+  </mat-form-field>
+
+  <div>
+    <mat-form-field>
+      <mat-label>Добавить новую задачу</mat-label>
+      <input matInput type="text" [(ngModel)]="newTodoText">
+    </mat-form-field>
+    <button mat-icon-button (click)="addTodo()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+
+  <div *ngFor="let todo of filteredTodos(); index as i">
+    <div *ngIf="!todo.completed">
+      <mat-checkbox color="primary" [checked]="todo.completed" (change)="toggleTodoStatus(i)"></mat-checkbox>
+      <mat-form-field>
+        <input matInput type="text" [(ngModel)]="todo.text" (ngModelChange)="editTodo(i, todo)">
+      </mat-form-field>
+      <button mat-icon-button (click)="deleteTodo(i)">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Выполненные задачи
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div *ngFor="let todo of filteredTodos(); index as i">
+        <div *ngIf="todo.completed">
+          <mat-checkbox [checked]="todo.completed" color="primary" (change)="toggleTodoStatus(i)"></mat-checkbox>
+          <mat-form-field>
+            <input matInput type="text" [(ngModel)]="todo.text" (ngModelChange)="editTodo(i, todo)">
+          </mat-form-field>
+          <button mat-icon-button (click)="deleteTodo(i)">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+      </div>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+</main>

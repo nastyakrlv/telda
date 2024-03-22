@@ -1,0 +1,6 @@
+<main>
+  <mat-card class="calendar-card">
+    <mat-calendar [dateClass]="dateClass()" (monthSelected)="handleMonthSelected($event)" #calendar [(selected)]="selectedDate" [startAt]="startDate" (selectedChange)="saveSelectedDate($event)"></mat-calendar>
+  </mat-card>
+</main>
+
