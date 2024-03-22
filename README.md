@@ -1,27 +1,34 @@
-# Telda
+# Telda Test
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.0.
+## Содержание
 
-## Development server
+- [Технологии](#технологии)
+- [Требования](#требования)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Технологии
 
-## Code scaffolding
+- Angular 17.3.0.
+- HTML
+- SCSS
+- TypeScript
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Требования
 
-## Build
+### Ограничения: 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+*	Версия Angular: не ниже 15
+*	Сторонние библиотеки: допускается использование moment.js
+*	Библиотеки стилей: разрешено использовать только для визуального оформления: Bootstrap, Angular Material, PrimeNg
+*	Результат должен быть размещен в GitHub и выложен на GitHub Pages
 
-## Running unit tests
+### Задача:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Разработать web-приложение Планировщик задач, которое содержит на стартовой странице календарь текущего месяца. Двойной клик по ячейке осуществляет переход на страницу дня, где реализован интерфейс ToDo приложения (ведения задач – аналог Google Keep). 
 
-## Running end-to-end tests
+### Требования:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Календарь: Имеется возможность выделения ячейки дня, переключения года или месяца (UI реализация по желанию). Приложение должно запоминать состояние календаря – выбранного года, месяца и дня, чтобы при обновлении станицы вид календаря не изменялся. 
 
-## Further help
+Функционал ToDo компонента: добавление записи, редактирование записи, смена статуса записи (выполнена/не выполнена), авто-сортировка записей по статусу, чтобы разделять их. Добавить интерфейс поиска по тексту задачи.  UI реализация ToDo по желанию. Записи сохраняются в памяти браузера и повторно загружаются после обновления страницы.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Календарь должен визуально выделять текущий день, выделенный день и дни, в которых есть задачи (желательно). 
